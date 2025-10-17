@@ -1,0 +1,72 @@
+[
+    {
+        "tag": "greeting",
+        "patterns": ["Hi", "Hello", "Hey", "How are you", "What's up"],
+        "responses": ["Hi there! How can I assist you with DATANYX 2025?", "Hello! Welcome to DATANYX 2025. How can I help you today?"]
+    },
+    {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye", "Take care"],
+        "responses": ["Goodbye! Good luck with your hackathon journey!", "See you later, all the best with DATANYX 2025!"]
+    },
+    {
+        "tag": "help",
+        "patterns": ["Help", "I need help", "Can you help me", "What should I do", "I am lost", "How can I participate"],
+        "responses": ["Sure! I can guide you through the event. What would you like to know? I can provide details on the event schedule, terms & conditions, or packing essentials.", "I'm here to help! Do you need information about the event, the rules, or how to prepare?"]
+    },
+    {
+        "tag": "terms_conditions",
+        "patterns": ["What are the terms and conditions", "Tell me about the event rules", "What should I know about DATANYX'25"],
+        "responses": ["The DATANYX 2025 event has a few key terms and conditions that you need to follow, including maintaining professionalism, respecting all participants, and adhering to the event schedule.", "Participants must work collaboratively, avoid disruptive behavior, and ensure ethical standards like honesty and fair play. You can find the full Terms & Conditions on the official DATANYX website or in the event booklet."]
+    },
+    {
+        "tag": "code_of_conduct",
+        "patterns": ["What is the code of conduct?", "Tell me about the behavior rules", "What is expected of participants"],
+        "responses": ["Participants must maintain a respectful and professional demeanor at all times. Harassment or inappropriate behavior will lead to disqualification.", "The code of conduct emphasizes cooperation, ethical behavior, and respect for everyone involved, including participants, mentors, and volunteers."]
+    },
+    {
+        "tag": "event_schedule",
+        "patterns": ["When does the event start?", "What are the event timings?", "Tell me about the schedule"],
+        "responses": ["The event will begin at [Date] and run for 24 hours. Detailed timings will be provided closer to the event date. Make sure to stay updated!", "You’ll receive a schedule upon registration with key event timings such as the opening ceremony, submission deadlines, and networking sessions."]
+    },
+    {
+        "tag": "team_collaboration",
+        "patterns": ["How do I collaborate with my team?", "Do I need to work in teams?", "Can I work alone"],
+        "responses": ["Participants are expected to work in teams. Collaboration is key for success. If you need help finding teammates, check the event's networking platform!", "You must attend the event with your team. Disruptive or uncooperative behavior may lead to disciplinary action."]
+    },
+    {
+        "tag": "packing_essentials",
+        "patterns": ["What should I bring to the hackathon?", "What are the packing essentials?", "What should I pack for DATANYX 2025?"],
+        "responses": ["Here’s a list of packing essentials for the event: Notebook and pen, water bottle, laptop and charger, extension box, portable Wi-Fi hotspot, and personal medications.", "Don’t forget your ID card, charger, headphones, and extension box! It’s also wise to bring a jacket or hoodie for comfort."]
+    },
+    {
+        "tag": "intellectual_property",
+        "patterns": ["Who owns the intellectual property?", "What happens to the solutions we develop?", "Do we keep our project ideas?"],
+        "responses": ["All ideas, strategies, and solutions developed during DATANYX remain the intellectual property of the respective teams.", "Your intellectual property is yours to keep! However, any damage to venue property will be charged to the responsible team."]
+    },
+    {
+        "tag": "health_safety",
+        "patterns": ["Is the event safe?", "What if I feel sick?", "What should I do in case of emergency?"],
+        "responses": ["Your health and safety are our priority. Please stay hydrated, take breaks, and report any concerns to the event staff immediately.", "We have first aid facilities available at the venue. If you feel unwell or need assistance, approach any organizer or volunteer."]
+    },
+    {
+        "tag": "travel_support",
+        "patterns": ["Can you help me with booking tickets?", "How do I book my flight?", "Do you provide travel support?"],
+        "responses": ["I can help you with flight booking for the event! You’ll need to check the DATANYX portal for instructions or contact the event support team for more info.", "For flight and accommodation, please visit the official website or reach out to the event organizers for recommendations."]
+    },
+    {
+        "tag": "faq_datathon",
+        "patterns": ["What is a Datathon?", "Tell me about Datanyx 2.0", "How do we register?", "Will food be provided?", "What are the eligibility criteria?", "Is there a participation fee?", "Can we submit more than one problem statement?", "Can beginners participate?", "What should we bring?"],
+        "responses": ["A Datathon is a competitive event where participants leverage data science, machine learning, and analytics to solve real-world problems using large datasets. Teams work within a fixed timeframe to analyze data, build models, and present actionable insights or solutions.", "Datanyx 2.0 is a 24-hour Datathon organized by IEEE SMC MJCET in collaboration with AWS Cloud Club MJCET. The event challenges participants to apply their data-driven creativity and technical expertise to develop innovative and impactful solutions.", "Registration is simple. Click the Register button on our website and fill in your team details. Make sure all members’ information is accurate before submitting the form.", "Yes, food will be provided throughout the event. Participants will stay in designated halls under faculty supervision. However, transportation will not be provided; participants are required to manage their own commute.", "Datanyx 2.0 is open to undergraduate students. Each team must consist of 2 to 4 members from the same or different institutions.", "Registration is completely free of cost. However, teams that are shortlisted for the final 24-hour Datathon will be required to pay a participation fee of ₹800.", "No, each team is allowed to work on and submit only one problem statement during Datanyx 2.0.", "Absolutely! Datanyx 2.0 welcomes beginners. Mentorship sessions and a pre-Datathon workshop will be conducted to help participants understand the fundamentals of data science and problem-solving.", "Problem statements will be assigned randomly on the day of the event. Once assigned, teams must work on that statement for the duration of the Datathon.", "Participants must bring their laptops, chargers, valid college ID cards, and any other required accessories. Internet access and power points will be provided at the venue."]
+    },
+    {
+        "tag": "no_answer",
+        "patterns": [],
+        "responses": ["Sorry, I didn’t quite catch that. Could you rephrase?", "Could you provide more details or clarify your question?"]
+    },
+    {
+        "tag": "goodbye_final",
+        "patterns": ["Thank you for your help", "See you at DATANYX!", "Goodbye for now"],
+        "responses": ["It was great helping you! Enjoy your experience at DATANYX 2025!", "Goodbye! Have an amazing hackathon experience and make the most of DATANYX 2025!"]
+    }
+]
