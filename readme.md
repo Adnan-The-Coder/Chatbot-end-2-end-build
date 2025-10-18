@@ -56,11 +56,11 @@ git clone https://github.com/Adnan-The-Coder/Chatbot-end-end-build.git
 ```
 python -m venv venv
 ```
-# Activate it (Windows)
+Activate it in (Windows)
 ```
 venv\Scripts\activate
 ```
-# OR (macOS/Linux)
+OR (macOS/Linux)
 ```
 source venv/bin/activate
 ```
@@ -97,7 +97,7 @@ docker build -t ml-lr-chatbot .
 ### 2. Run the Docker Container
 
 ```bash
-docker run -p ml-lr-chatbot
+docker run -p 8080:8000 ml-lr-chatbot-api
 ```
 
 ---

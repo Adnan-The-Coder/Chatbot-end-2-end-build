@@ -1,14 +1,12 @@
-# chatbot.py
-
+print("Loading chatbot...")
 import json
 import random
 import nltk
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
-print("Loading chatbot...")
-print("Importing Preferences")
 
+print("Importing Preferences")
 nltk.download("punkt")
 
 # Load intents

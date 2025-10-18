@@ -1,4 +1,4 @@
-name: Deploy to Render
+name: Build and deploy pipeline
 
 on:
   push:
