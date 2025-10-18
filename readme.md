@@ -36,13 +36,11 @@ CHATBOT/
 
 `requirements.txt` file has these following contents:
 
-```txt
-nltk==3.6.3
-scikit-learn==0.24.2
-numpy==1.21.2
-````
+```
+pip install -r requirements.txt
+```
 
-> 💡 **Note**: Even though `numpy` is not explicitly imported in `main.py`, it is required by `scikit-learn` internally. Without it, the application will fail at runtime.
+> 💡 **Note**: Even though `numpy` is not explicitly imported in `chatbot.py`, it is required by `scikit-learn` internally. Without it, the application will fail at runtime.
 
 ---
 
@@ -54,19 +52,37 @@ numpy==1.21.2
 git clone https://github.com/Adnan-The-Coder/Chatbot-end-end-build.git
 ```
 
-### 2. Install Dependencies (Without Docker)
+### 2. Create and activate a virtual environment
+```
+python -m venv venv
+```
+# Activate it (Windows)
+```
+venv\Scripts\activate
+```
+# OR (macOS/Linux)
+```
+source venv/bin/activate
+```
+
+### 3. Install Dependencies (Without Docker)
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the Chatbot
+### 4. Run the FastAPI app
+uvicorn api:app --reload
 
-```bash
-python main.py
+
+Visit: http://localhost:8000
+
+Endpoint: POST /chat
 ```
-
-You can now interact with the chatbot in your terminal.
+{
+  "message": "hi"
+}
+```
 
 ---
 
@@ -81,10 +97,15 @@ docker build -t ml-lr-chatbot .
 ### 2. Run the Docker Container
 
 ```bash
-docker run -it ml-lr-chatbot
+docker run -p ml-lr-chatbot
 ```
 
 ---
+
+## 🛠 API Overview
+- Method:	POST
+- Endpoint:	/chat
+- Description: Get chatbot reply
 
 ##  How It Works
 
