@@ -14,12 +14,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build Docker image with cache
+      - name: Build Docker image (cache only)
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
-          push: false  # Only build & test image, no pushing
+          push: false
           tags: ml-lr-chatbot-api:test
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -49,7 +49,25 @@ jobs:
       - name: Trigger Render Deploy
         id: deploy
         run: |
-          DEPLOY_RESPONSE=$(curl -s -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
+          echo "🚀 Triggering deployment on Render..."
+
+          DEPLOY_RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
             -H "Accept: application/json" \
             -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
             -d '{}')
+
+          # Split response and status code
+          HTTP_BODY=$(echo "$DEPLOY_RESPONSE" | head -n 1)
+          HTTP_STATUS=$(echo "$DEPLOY_RESPONSE" | tail -n1)
+
+          echo "📦 Render response body:"
+          echo "$HTTP_BODY"
+
+          echo "📡 Render response status: $HTTP_STATUS"
+
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "❌ Render deployment trigger failed with status $HTTP_STATUS"
+            exit 1
+          else
+            echo "✅ Render deployment successfully triggered."
+          fi
