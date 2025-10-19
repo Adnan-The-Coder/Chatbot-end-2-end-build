@@ -1,9 +1,18 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
 from chatbot import Chatbot  # Import the Chatbot class
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Initialize the chatbots once when the app starts with the specified data files
 datanyx_chatbot = Chatbot(file_path="data/datanyx-general-info.json")
