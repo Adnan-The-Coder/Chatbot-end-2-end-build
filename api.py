@@ -10,16 +10,11 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "https://localhost:3000",
-        "http://127.0.0.1:3000",
-        "*"  # For development only - remove in production
+        "http://localhost:3000",              
     ],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
-    expose_headers=["*"]
+    allow_headers=["*"]
 )
 
 # Initialize the chatbots once when the app starts with the specified data files
@@ -32,38 +27,14 @@ class ChatRequest(BaseModel):
 # Define chat route
 @app.post("/chat/datanyx")
 async def chat_endpoint(req: ChatRequest):
-    """Chat endpoint for Datanyx chatbot"""
     try:
         response = datanyx_chatbot.get_response(req.message)
-        return JSONResponse(
-            content={"response": response},
-            headers={
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "POST, OPTIONS",
-                "Access-Control-Allow-Headers": "*",
-            }
-        )
+        return {"response": response}
     except Exception as e:
         return JSONResponse(
             content={"error": str(e)},
-            status_code=500,
-            headers={
-                "Access-Control-Allow-Origin": "*",
-            }
+            status_code=500
         )
-
-# Add OPTIONS handler for preflight
-@app.options("/chat/datanyx")
-async def chat_options():
-    """Handle preflight OPTIONS request"""
-    return JSONResponse(
-        content={"message": "OK"},
-        headers={
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "*",
-        }
-    )
 
 @app.get("/", response_class=HTMLResponse)
 def root():
