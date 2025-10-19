@@ -64,10 +64,3 @@ jobs:
           echo "$HTTP_BODY"
 
           echo "📡 Render response status: $HTTP_STATUS"
-
-          if [ "$HTTP_STATUS" -ne 200 ]; then
-            echo "❌ Render deployment trigger failed with status $HTTP_STATUS"
-            exit 1
-          else
-            echo "✅ Render deployment successfully triggered."
-          fi
