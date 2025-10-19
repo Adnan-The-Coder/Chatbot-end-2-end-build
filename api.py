@@ -11,7 +11,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000", 
-        "https://datanyx-2025-website.vercel.app"             
+        "https://datanyx-2025-website.vercel.app/",
         "https://datanyx.in"
     ],
     allow_credentials=True,
