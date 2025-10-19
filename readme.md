@@ -1,7 +1,7 @@
 
-# 🤖 Simple Chatbot using Logistic Regression
+# 🤖 Dynamic Chatbot models 
 
-This is a terminal-based chatbot implemented in Python using `scikit-learn`'s `LogisticRegression` classifier. The chatbot is trained on a set of intents defined in a JSON file and responds based on user input using machine learning and natural language processing.
+This is a API based chatbot implemented in Python using `scikit-learn`'s `LogisticRegression` classifier and FastAPI. The chatbot is trained on a set of intents defined in a JSON file and responds based on user input using machine learning and natural language processing.
 
 ---
 
@@ -12,7 +12,8 @@ This is a terminal-based chatbot implemented in Python using `scikit-learn`'s `L
 CHATBOT/
 ├── data/
 │   └── datanyx-general-info.json   # Training data (intents and responses)
-├── main.py                         # Chatbot script
+├── chabot.py                       # Chatbot Class
+├── api.py                          # API Endpoints are created
 ├── Dockerfile                      # Docker configuration
 ├── requirements.txt                # Python dependencies
 └── README.md                       # Project documentation
@@ -23,7 +24,7 @@ CHATBOT/
 
 ##  Features
 
-- Simple text-based interaction in the terminal
+- Text-based interaction responses
 - Trained using Logistic Regression from `scikit-learn`
 - Uses TF-IDF vectorization for input processing
 - Random response selection from matched intent
@@ -33,14 +34,6 @@ CHATBOT/
 ---
 
 ## 📦 Requirements
-
-`requirements.txt` file has these following contents:
-
-```
-pip install -r requirements.txt
-```
-
-> 💡 **Note**: Even though `numpy` is not explicitly imported in `chatbot.py`, it is required by `scikit-learn` internally. Without it, the application will fail at runtime.
 
 ---
 
@@ -70,6 +63,8 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+> 💡 **Note**: Even though `numpy` is not explicitly imported in `chatbot.py`, it is required by `scikit-learn` internally. Without it, the application will fail at runtime.
+
 
 ### 4. Run the FastAPI app
 uvicorn api:app --reload
@@ -77,7 +72,7 @@ uvicorn api:app --reload
 
 Visit: http://localhost:8000
 
-Endpoint: POST /chat
+Endpoint: POST /chat/<chabot-name>
 ```
 {
   "message": "hi"
@@ -99,12 +94,14 @@ docker build -t ml-lr-chatbot .
 ```bash
 docker run -p 8080:8000 ml-lr-chatbot-api
 ```
+> 💡 **Note**: http://0.0.0.0:8080
+
 
 ---
 
 ## 🛠 API Overview
 - Method:	POST
-- Endpoint:	/chat
+- Endpoint:	/chat/<chabot-name>
 - Description: Get chatbot reply
 
 ##  How It Works
@@ -130,19 +127,19 @@ You can add your own data of intents and update in main.py and build image and r
 * The chatbot reads all `patterns` and `tags` from the JSON file.
 * TF-IDF is used to vectorize the input patterns.
 * Logistic Regression trains a classifier to map input text to the correct intent tag.
+* Similiarly, New Dataset can be added and new API endpoint for this new bot can be created in api.py 
 
 ### Chatbot Workflow
 
-1. Wait for user input.
-2. Transform input using the trained TF-IDF vectorizer.
-3. Predict the tag using the logistic regression model.
-4. Find a matching intent and respond with a random reply from the associated `responses`.
+1. Transform input using the trained TF-IDF vectorizer.
+2. Predict the tag using the logistic regression model.
+3. Find a matching intent and respond with a random reply from the associated `responses`.
 
 ---
 
 ## 📜 Code Overview
 
-### Main Components of `main.py`
+### Main Components of `chatbot.py`
 
 * **NLTK Setup**
   Downloads the `punkt` tokenizer needed for any NLTK processing.
@@ -191,7 +188,6 @@ You can add your own data of intents and update in main.py and build image and r
 
 ##  To Do / Future Improvements
 
-* Add GUI or web interface (e.g., with Flask)
 * Save and load the trained model using `pickle`
 * Use lemmatization or stemming for better NLP processing
 * Support multiple intents per input
