@@ -22,6 +22,24 @@
     ]
   },
   {
+    "tag": "chatbot_author",
+    "patterns": [
+      "Who built you?",
+      "Who is the creator of this chatbot?",
+      "Who developed you?",
+      "Who is responsible for this chatbot?",
+      "Who made this chatbot?",
+      "Who created this assistant?",
+      "Who designed you?"
+    ],
+    "responses": [
+      "I was built by Adnan, a passionate developer (adnanthecoder.com)",
+      "This chatbot was created by Adnan. Check out more at adnanthecoder.com.",
+      "I'm powered by Adnan. AdnanTheCoder.com You can learn more there!",
+      "Adnan, the developer  adnanthecoder.com, is the mastermind behind this chatbot!"
+    ]
+  },
+  {
     "tag": "goodbye",
     "patterns": [
       "Bye",
